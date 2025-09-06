@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chai aur code | DOM</title>
 </head>
-<body style="background-color: #212121; color: #fff;">
+<body style="background-color: #da9e9e; color: #fff;">
     <ul class="language">
         <li>Javascript</li>
     </ul>
@@ -19,30 +19,31 @@
     }
     addLanguage("python")
     addLanguage("typescript")
-
-    function addOptiLanguage(langName){
+    function addOptionalLanguage(langName){
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(langName))
         document.querySelector('.language').appendChild(li)
     }
-    addOptiLanguage('golang')
+    addOptionalLanguage('golang')
+    // this optional method is better than the method above it becuase in this we dont 
+    // have to travel the whole tree and for big project use append child method
+    
 
-    //Edit
+    // Now let us see how we can edit the values
     const secondLang = document.querySelector("li:nth-child(2)")
     console.log(secondLang);
-    //secondLang.innerHTML = "Mojo"
+    // secondLang.innerHTML = "Mojo"
     const newli = document.createElement('li')
     newli.textContent = "Mojo"
     secondLang.replaceWith(newli)
+    
+    // Example 2 of edit
+    const firstLang = document.querySelector("li:first-child");
+    firstLang.outerHTML = '<li>TypeScript</li>';
 
-    //edit
-    const firstLang = document.querySelector("li:first-child")
-    firstLang.outerHTML = '<li>TypeScript</li>'
-
-    //remove
+    // For removing the element
     const lastLang = document.querySelector('li:last-child')
     lastLang.remove()
-
-
+ 
 </script>
 </html>
